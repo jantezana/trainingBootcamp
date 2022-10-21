@@ -2,8 +2,8 @@ plugins {
     id 'java'
 }
 
-group 'com.mojix'
-version '1.0-SNAPSHOT'
+group 'com.mojix.bootcamp'
+version '1.0.0'
 
 repositories {
     mavenCentral()

@@ -1,4 +1,4 @@
-package com.mojix;
+package com.mojix.bootcamp;
 
 /**
  * Main class.
