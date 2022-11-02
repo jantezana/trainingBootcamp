@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
@@ -34,7 +35,7 @@ public class BasicSeleniumTest {
     @Test
     public void verifyCRUDProject() throws InterruptedException {
 
-        // login
+        // Login.
         this.driver.findElement(By.xpath("//img[contains(@src,'pagelogin')]")).click();
         this.driver.findElement(By.id("ctl00_MainContent_LoginControl1_TextBoxEmail")).sendKeys(BOOTCAMP_EMAIL);
         this.driver.findElement(By.id("ctl00_MainContent_LoginControl1_TextBoxPassword")).sendKeys(BOOTCAMP_PASSWORD);
@@ -48,9 +49,8 @@ public class BasicSeleniumTest {
         this.driver.findElement(By.id("NewProjNameInput")).sendKeys(projectName);
         this.driver.findElement(By.id("NewProjNameButton")).click();
         Thread.sleep(DEFAULT_SLEEP_TIME);
-        int actualResult = driver.findElements(By.xpath(" //td[text()='" + projectName + "'] ")).size();
+        int actualResult = driver.findElements(By.xpath("//td[text()='" + projectName + "']")).size();
         Assertions.assertTrue(actualResult >= 1, "ERROR The project was not created");
-
 
         // Updates the project name.
         projectName = "UpdatedJAAProject" + new Date().getTime();
@@ -60,8 +60,23 @@ public class BasicSeleniumTest {
         driver.findElement(By.xpath("//td/div/input[@id='ItemEditTextbox']")).sendKeys(projectName);
         driver.findElement(By.xpath("//td/div/img[@id='ItemEditSubmit']")).click();
         Thread.sleep(DEFAULT_SLEEP_TIME);
-        actualResult = driver.findElements(By.xpath(" //td[text()='" + projectName + "'] ")).size();
+        actualResult = driver.findElements(By.xpath("//td[text()='" + projectName + "']")).size();
         Assertions.assertTrue(actualResult >= 1, "ERROR The project was not updated");
+
+        // Creates a task
+        String taskName = "JAATask" + new Date().getTime();
+        this.driver.findElement(By.id("NewItemContentInput")).sendKeys(taskName);
+        this.driver.findElement(By.id("NewItemAddButton")).click();
+        Thread.sleep(DEFAULT_SLEEP_TIME);
+        actualResult = driver.findElements(By.xpath("//div[text()='" + taskName + "']")).size();
+        Assertions.assertTrue(actualResult >= 1, "ERROR The task was not created");
+
+        // Updated task name.
+        driver.findElement(By.xpath("//td/div[text()='"+ taskName +"']")).click();
+        driver.findElement(By.xpath("//td/div[text()='"+ taskName +"']")).clear();
+        taskName = "UpdatedJAATask" + new Date().getTime();
+        driver.findElement(By.xpath("//td/div[text()='"+ taskName +"']")).sendKeys("Juan");
+        driver.findElement(By.xpath("//div[text()='" + taskName + "']")).sendKeys(Keys.ENTER);
 
         // Deletes the project
         driver.findElement(By.xpath("//div[contains(@style,'block')]/img")).click();
