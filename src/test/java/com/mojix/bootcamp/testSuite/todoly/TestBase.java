@@ -19,17 +19,15 @@ import org.junit.jupiter.api.BeforeEach;
  */
 public class TestBase {
 
-    MainPage mainPage = new MainPage();
-    LoginSection loginSection = new LoginSection();
-    MenuSection menuSection = new MenuSection();
-    ProjectSection projectSection = new ProjectSection();
+    public MainPage mainPage = new MainPage();
+    public LoginSection loginSection = new LoginSection();
+    public MenuSection menuSection = new MenuSection();
+    public ProjectSection projectSection = new ProjectSection();
+    public SettingsSection settingsSection = new SettingsSection();
 
-    SettingsSection settingsSection = new SettingsSection();
-
-    SignUpSection signUpSection = new SignUpSection();
-
-    String user = GetProperties.getInstance().getUser();
-    String password = GetProperties.getInstance().getPwd();
+    public SignUpSection signUpSection = new SignUpSection();
+    public String user = GetProperties.getInstance().getUser();
+    public String password = GetProperties.getInstance().getPwd();
 
     @BeforeEach
     public void openBrowser() {

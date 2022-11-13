@@ -2,11 +2,13 @@ package com.mojix.bootcamp.session;
 
 import com.mojix.bootcamp.browser.BrowserType;
 import com.mojix.bootcamp.browser.FactoryBrowser;
+import com.mojix.bootcamp.util.GetProperties;
 import org.openqa.selenium.WebDriver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.Objects;
+import java.util.Optional;
 
 /**
  * Session class.
@@ -21,9 +23,10 @@ public class Session {
     private WebDriver browser;
 
     private Session() {
-        // TODO: create it in a property.
         logger.info("Creating the session!!");
-        this.browser = FactoryBrowser.make(BrowserType.CHROME).create();
+        String browserValue = GetProperties.getInstance().getBrowser();
+        Optional<BrowserType> browserType = BrowserType.fromString(browserValue);
+        this.browser = FactoryBrowser.make(browserType.get()).create();
     }
 
     /**

@@ -3,8 +3,6 @@ package com.mojix.bootcamp.testSuite.todoly;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import java.util.Date;
-
 /**
  * UpdatePasswordTest class.
  *
@@ -15,9 +13,9 @@ public class UpdatePasswordTest extends TestBase {
 
     @Test
     public void verifyUpdatePassword() {
-        String email = "bootcamp@" + new Date().getTime() + ".com";
-        String pwd = new Date().getTime() + "";
-        String newPwd = "Auto" + pwd;
+        String email = String.format("bootcamp@%d.com", System.currentTimeMillis());
+        String pwd = String.format("%d", System.currentTimeMillis());
+        String newPwd = String.format("Auto%s", pwd);
 
         mainPage.signUpFreeButton.click();
         signUpSection.createNewAccount(email, email, pwd);
@@ -31,6 +29,4 @@ public class UpdatePasswordTest extends TestBase {
         loginSection.login(email, newPwd);
         Assertions.assertTrue(menuSection.logoutButton.isControlDisplayed(), "ERROR no se pudo iniciar sesion");
     }
-
-
 }

@@ -27,6 +27,10 @@ public class FactoryBrowser {
                 browser = new Safari();
                 break;
             }
+            case GRID: {
+                browser = new Grid();
+                break;
+            }
             default: {
                 browser = new Headless();
             }

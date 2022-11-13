@@ -22,7 +22,7 @@ public class SignUpSection {
     public SignUpSection() {
     }
 
-    public void createNewAccount(String fullName, String email, String pwd) {
+    public void createNewAccount(final String fullName, final String email, final String pwd) {
         fullNameTextBox.setText(fullName);
         emailTextBox.setText(email);
         pwdTextBox.setText(pwd);

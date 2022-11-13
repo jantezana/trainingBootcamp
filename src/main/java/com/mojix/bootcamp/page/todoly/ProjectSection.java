@@ -24,17 +24,17 @@ public class ProjectSection {
     public ProjectSection() {
     }
 
-    public void clickOnProject(String nameProject) {
+    public void clickOnProject(final String nameProject) {
         Label projectCreated = new Label(By.xpath("//td[text()='" + nameProject + "']"));
         projectCreated.click();
     }
 
-    public boolean isProjectDisplayedInList(String nameProject) {
+    public boolean isProjectDisplayedInList(final String nameProject) {
         Label projectCreated = new Label(By.xpath("//td[text()='" + nameProject + "']"));
         return projectCreated.isControlDisplayed();
     }
 
-    public Label getProject(String nameProject) {
+    public Label getProject(final String nameProject) {
         Label projectCreated = new Label(By.xpath("//td[text()='" + nameProject + "']"));
         return projectCreated;
     }

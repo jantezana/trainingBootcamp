@@ -4,8 +4,6 @@ import com.mojix.bootcamp.session.Session;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import java.util.Date;
-
 /**
  * CRUDProjectTest class.
  *
@@ -16,8 +14,8 @@ public class CRUDProjectTest extends TestBase {
 
     @Test
     public void verifyCRUDProject() {
-        String projectCreated = "MOJIX" + new Date().getTime();
-        String projectUpdated = "QA" + new Date().getTime();
+        String projectCreated = String.format("MOJIX-%d", System.currentTimeMillis());
+        String projectUpdated = String.format("QA%d", System.currentTimeMillis());
 
         mainPage.loginLabel.click();
         loginSection.emailTxtBox.setText(user);

@@ -17,7 +17,7 @@ public class LoginSection {
     public Button loginButton = new Button(By.id("ctl00_MainContent_LoginControl1_ButtonLogin"));
 
 
-    public void login(String user, String pwd) {
+    public void login(final String user, final String pwd) {
         emailTxtBox.setText(user);
         passwordTxtBox.setText(pwd);
         loginButton.click();
