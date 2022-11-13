@@ -2,11 +2,16 @@ package com.mojix.bootcamp.browser;
 
 import java.util.Optional;
 
+/**
+ * BrowserType enumerator.
+ */
 public enum BrowserType {
     CHROME("chrome"),
     FIREFOX("firefox"),
     INTERNET_EXPLORER("internet_explorer"),
-    SAFARI("safari");
+    SAFARI("safari"),
+    HEADLESS("headless"),
+    GRID("grid");
 
     private String value;
 

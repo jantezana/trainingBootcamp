@@ -1,5 +1,7 @@
-package com.mojix.bootcamp.browser;
+package com.mojix.bootcamp.session;
 
+import com.mojix.bootcamp.browser.BrowserType;
+import com.mojix.bootcamp.browser.FactoryBrowser;
 import org.openqa.selenium.WebDriver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -16,13 +18,12 @@ public class Session {
 
     private static final Logger logger = LoggerFactory.getLogger(Session.class);
     private static Session instance = null;
-    private WebDriver webDriver;
+    private WebDriver browser;
 
     private Session() {
         // TODO: create it in a property.
         logger.info("Creating the session!!");
-        Browser browser = FactoryBrowser.make(BrowserType.CHROME);
-        webDriver = browser.create();
+        this.browser = FactoryBrowser.make(BrowserType.CHROME).create();
     }
 
     /**
@@ -39,10 +40,26 @@ public class Session {
     }
 
     /**
+     * Gets the browser.
+     *
+     * @return The browser
+     */
+    public WebDriver getBrowser() {
+        return this.browser;
+    }
+
+    /**
+     * Accept the alert.
+     */
+    public void acceptAlert() {
+        this.browser.switchTo().alert().accept();
+    }
+
+    /**
      * Close the session.
      */
-    public void close() {
-        this.webDriver.quit();
+    public void closeSession() {
+        this.browser.quit();
         instance = null;
     }
 }

@@ -11,6 +11,10 @@ public class FactoryBrowser {
     public static Browser make(BrowserType browserType) {
         Browser browser;
         switch (browserType) {
+            case CHROME: {
+                browser = new Chrome();
+                break;
+            }
             case FIREFOX: {
                 browser = new Firefox();
                 break;
@@ -24,7 +28,7 @@ public class FactoryBrowser {
                 break;
             }
             default: {
-                browser = new Chrome();
+                browser = new Headless();
             }
         }
         return browser;

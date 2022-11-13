@@ -12,6 +12,12 @@ import org.openqa.selenium.chrome.ChromeOptions;
 
 import java.util.Date;
 
+/**
+ * BasicSeleniumTest class.
+ *
+ * @author jantezana
+ * @version 2022/11/12
+ */
 public class BasicSeleniumTest {
 
     public static final String BOOTCAMP_EMAIL = "bootcamp@mojix44.com";
