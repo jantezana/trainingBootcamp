@@ -8,6 +8,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 import java.util.Date;
 
@@ -23,6 +24,8 @@ public class BasicSeleniumTest {
     @BeforeEach
     public void setup() {
         System.setProperty("webdriver.chrome.driver", DRIVER_CHROME_DRIVER_PATH);
+        ChromeOptions chromeOptions = new ChromeOptions();
+        chromeOptions.addArguments("--start-maximized");
         this.driver = new ChromeDriver();
         this.driver.get(DEFAULT_URL);
     }

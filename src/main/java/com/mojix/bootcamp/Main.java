@@ -1,5 +1,8 @@
 package com.mojix.bootcamp;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 /**
  * Main class.
  *
@@ -8,12 +11,14 @@ package com.mojix.bootcamp;
  */
 public class Main {
 
+    private static final Logger logger = LoggerFactory.getLogger(Main.class);
+
     /**
      * Main method.
      *
      * @param args the array of arguments
      */
     public static void main(String[] args) {
-        System.out.println("Mojix QA Automation Bootcamp 1.0!!");
+        logger.info("Mojix QA Automation Bootcamp 1.0!!");
     }
 }
