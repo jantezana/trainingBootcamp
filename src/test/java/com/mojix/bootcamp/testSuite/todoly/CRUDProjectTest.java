@@ -14,16 +14,16 @@ public class CRUDProjectTest extends TestBase {
 
     @Test
     public void verifyCRUDProject() {
-        String projectCreated = String.format("MOJIX-%d", System.currentTimeMillis());
-        String projectUpdated = String.format("QA%d", System.currentTimeMillis());
+        String projectCreated = String.format("MOJIX-JAA-%d", System.currentTimeMillis());
+        String projectUpdated = String.format("QA-JAA-%d", System.currentTimeMillis());
 
         mainPage.loginLabel.click();
         loginSection.emailTxtBox.setText(user);
         loginSection.passwordTxtBox.setText(password);
         loginSection.loginButton.click();
-        Assertions.assertTrue(menuSection.logoutButton.isControlDisplayed(), "ERROR! the login was faield");
+        Assertions.assertTrue(menuSection.logoutButton.isControlDisplayed(), "ERROR! the login was failed");
 
-        projectSection.addNewProjecButton.click();
+        projectSection.addNewProjectButton.click();
         projectSection.nameProjectTxtBox.setText(projectCreated);
         projectSection.addButton.click();
         Assertions.assertTrue(projectSection.isProjectDisplayedInList(projectCreated), "ERROR! the project was not created");

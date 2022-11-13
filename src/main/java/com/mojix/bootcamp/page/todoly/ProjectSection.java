@@ -19,7 +19,6 @@ public class ProjectSection {
     public Button addButton = new Button(By.id("NewProjNameButton"));
     public TextBox editProjectTxtBox = new TextBox(By.xpath("//td/div/input[@id='ItemEditTextbox']"));
     public Button saveButton = new Button(By.xpath("//td/div/img[@id='ItemEditSubmit']"));
-    public Button addNewProjecButton = new Button(By.id(""));
 
     public ProjectSection() {
     }
