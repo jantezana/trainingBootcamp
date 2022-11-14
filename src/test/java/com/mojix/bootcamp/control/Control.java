@@ -48,6 +48,6 @@ public class Control {
 
     public void waitControlIsNotInThePage() {
         WebDriverWait explicitWait = new WebDriverWait(Session.getInstance().getBrowser(), Duration.ofSeconds(5));
-        explicitWait.until(ExpectedConditions.visibilityOfElementLocated(this.locator));
+        explicitWait.until(ExpectedConditions.not(ExpectedConditions.visibilityOfElementLocated(this.locator)));
     }
 }
