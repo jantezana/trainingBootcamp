@@ -8,5 +8,5 @@ package com.mojix.bootcamp.util;
  */
 public class Constants {
 
-    public static final String DRIVER_CHROME_DRIVER_PATH = "src/test/resources/driver/chromedriverlinux";
+    public static final String DRIVER_CHROME_DRIVER_PATH = "src/test/resources/driver/chromedrivermac";
 }
