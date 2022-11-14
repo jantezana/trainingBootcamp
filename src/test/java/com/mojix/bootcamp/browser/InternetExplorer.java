@@ -23,6 +23,7 @@ public class InternetExplorer implements Browser {
         WebDriver driver = new InternetExplorerDriver();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
         driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(15));
+        driver.manage().window().maximize();
         return driver;
     }
 }

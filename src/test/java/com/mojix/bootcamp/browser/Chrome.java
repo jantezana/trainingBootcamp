@@ -24,6 +24,7 @@ public class Chrome implements Browser {
         WebDriver driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
         driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(15));
+        driver.manage().window().maximize();
         return driver;
     }
 }
