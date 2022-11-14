@@ -21,7 +21,7 @@ public class GetProperties {
 
     public GetProperties() {
         Properties properties = new Properties();
-        String nameFile = "todoly.properties";
+        String nameFile = System.getProperty("configuration.name");
         InputStream inputStream = getClass().getClassLoader().getResourceAsStream(nameFile);
         if (inputStream != null) {
             try {

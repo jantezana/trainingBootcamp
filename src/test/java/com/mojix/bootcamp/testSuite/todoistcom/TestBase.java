@@ -1,11 +1,7 @@
-package com.mojix.bootcamp.testSuite.todoly;
+package com.mojix.bootcamp.testSuite.todoistcom;
 
-import com.mojix.bootcamp.page.todoly.LoginSection;
-import com.mojix.bootcamp.page.todoly.MainPage;
-import com.mojix.bootcamp.page.todoly.MenuSection;
-import com.mojix.bootcamp.page.todoly.ProjectSection;
-import com.mojix.bootcamp.page.todoly.SettingsSection;
-import com.mojix.bootcamp.page.todoly.SignUpSection;
+import com.mojix.bootcamp.page.todoistcom.LoginSection;
+import com.mojix.bootcamp.page.todoistcom.MainPage;
 import com.mojix.bootcamp.session.Session;
 import com.mojix.bootcamp.util.GetProperties;
 import org.junit.jupiter.api.AfterEach;
@@ -22,16 +18,12 @@ public class TestBase {
 
     public MainPage mainPage = new MainPage();
     public LoginSection loginSection = new LoginSection();
-    public MenuSection menuSection = new MenuSection();
-    public ProjectSection projectSection = new ProjectSection();
-    public SettingsSection settingsSection = new SettingsSection();
-    public SignUpSection signUpSection = new SignUpSection();
     public static String user;
     public static String password;
 
     @BeforeAll
     public static void beforeAll() {
-        System.setProperty("configuration.name", "todoly.properties");
+        System.setProperty("configuration.name", "todoistcom.properties");
         user = GetProperties.getInstance().getUser();
         password = GetProperties.getInstance().getPwd();
     }
