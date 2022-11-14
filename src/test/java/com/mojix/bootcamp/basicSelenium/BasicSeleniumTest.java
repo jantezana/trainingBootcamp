@@ -13,6 +13,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
+import static com.mojix.bootcamp.util.Constants.DRIVER_CHROME_DRIVER_PATH;
+
 /**
  * BasicSeleniumTest class.
  *
@@ -25,7 +27,6 @@ public class BasicSeleniumTest {
     public static final String BOOTCAMP_PASSWORD = "12345";
     public static final int DEFAULT_SLEEP_TIME = 1000;
     public static final String DEFAULT_URL = "http://todo.ly/";
-    public static final String DRIVER_CHROME_DRIVER_PATH = "src/test/resources/driver/chromedriver";
     private WebDriver driver;
 
     @BeforeEach

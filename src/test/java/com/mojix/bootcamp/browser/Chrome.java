@@ -7,6 +7,8 @@ import org.slf4j.LoggerFactory;
 
 import java.time.Duration;
 
+import static com.mojix.bootcamp.util.Constants.DRIVER_CHROME_DRIVER_PATH;
+
 /**
  * Chrome class.
  *
@@ -20,7 +22,7 @@ public class Chrome implements Browser {
     @Override
     public WebDriver create() {
         logger.info("Creating the chrome driver!!");
-        System.setProperty("webdriver.chrome.driver", "src/test/resources/driver/chromedriver");
+        System.setProperty("webdriver.chrome.driver", DRIVER_CHROME_DRIVER_PATH);
         WebDriver driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
         driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(15));

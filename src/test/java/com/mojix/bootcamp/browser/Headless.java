@@ -8,6 +8,8 @@ import org.slf4j.LoggerFactory;
 
 import java.time.Duration;
 
+import static com.mojix.bootcamp.util.Constants.DRIVER_CHROME_DRIVER_PATH;
+
 /**
  * Safari class.
  *
@@ -21,7 +23,7 @@ public class Headless implements Browser {
     @Override
     public WebDriver create() {
         logger.info("Creating the headless driver!!");
-        System.setProperty("webdriver.chrome.driver", "src/test/resources/driver/chromedriver");
+        System.setProperty("webdriver.chrome.driver", DRIVER_CHROME_DRIVER_PATH);
 
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--headless");
