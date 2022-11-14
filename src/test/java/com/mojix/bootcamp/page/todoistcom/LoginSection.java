@@ -12,9 +12,9 @@ import org.openqa.selenium.By;
  */
 public class LoginSection {
 
-    public TextBox emailTxtBox = new TextBox(By.xpath("//div[@class='_9d172ece c59d0239 f9408a0e']/input"));
-    public TextBox passwordTxtBox = new TextBox(By.xpath("//div[@class='_66b448b3 _9d172ece c59d0239 f9408a0e _6e9db9aa _6cad1a19 _21b8bafa']/input"));
-    public Button loginButton = new Button(By.xpath("//button[@class='nFxHGeI S7Jh9YX a8af2163 _3d1243b2 _3991076f f9408a0e _8c75067a']"));
+    public TextBox emailTxtBox = new TextBox(By.xpath("//input[@type='email']"));
+    public TextBox passwordTxtBox = new TextBox(By.xpath("//input[@type='password']"));
+    public Button loginButton = new Button(By.xpath("//button[@type='submit']"));
 
 
     public void login(final String user, final String pwd) {
