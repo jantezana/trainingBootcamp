@@ -14,8 +14,8 @@ public class CRUDProjectTest extends TestBase {
 
     @Test
     public void verifyCRUDProject() throws InterruptedException {
-        String createdProject = String.format("NEW_PROJECT-JAA-%d", System.currentTimeMillis());
-        String updatedProject = String.format("UPDATED-PROJECT-JAA-%d", System.currentTimeMillis());
+        String createdProject = String.format("NEW_PROJECT_JAA_%d", System.currentTimeMillis());
+        String updatedProject = String.format("UPDATED_PROJECT_JAA_%d", System.currentTimeMillis());
 
         // Login.
         mainPage.loginLabel.click();
@@ -32,6 +32,30 @@ public class CRUDProjectTest extends TestBase {
         projectSection.addButton.click();
         projectSection.addButton.waitControlIsNotInThePage();
         Assertions.assertTrue(projectSection.isProjectDisplayedInList(createdProject), "ERROR! the project was not created");
+
+        String createdTask = String.format("NEW_TASK_JAA_%d", System.currentTimeMillis());
+        String updatedTask = String.format("UPDATED_TASK_JAA_%d", System.currentTimeMillis());
+
+        // Create Task.
+        taskSection.addNewTaskButton.click();
+        taskSection.descriptionTxtBox.setText(createdTask);
+        taskSection.addTaskButton.click();
+        taskSection.addNewTaskButton.waitControlIsNotInThePage();
+        Assertions.assertTrue(taskSection.isTaskDisplayedInList(createdTask), "ERROR! the task was not created");
+
+        // Update Task name.
+//        taskSection.clickOnTask(createdTask);
+//        taskSection.clickOnTask(createdTask);
+//        taskSection.editDescriptionTxtBox.cleanSetText(updatedTask);
+//        taskSection.saveButton.click();
+
+        // Delete Task.
+        taskSection.clickOnTask(createdTask);
+        taskSection.menuTaskSection.moreActionsButton.click();
+        taskSection.menuTaskSection.deleteTaskButton.click();
+        taskSection.menuTaskSection.deleteButton.click();
+        taskSection.getTask(createdTask).waitControlIsNotInThePage();
+        Assertions.assertFalse(taskSection.isTaskDisplayedInList(createdTask), "ERROR! the task was not deleted");
 
         // Update the project name.
         projectSection.clickOnProject(createdProject);
