@@ -41,9 +41,23 @@ public class Control {
         }
     }
 
+    public boolean isControlEnabled() {
+        try {
+            this.find();
+            return this.control.isEnabled();
+        } catch (Exception exception) {
+            return false;
+        }
+    }
+
     public String getText() {
         this.find();
         return this.control.getText();
+    }
+
+    public void waitControlIsInThePage() {
+        WebDriverWait explicitWait = new WebDriverWait(Session.getInstance().getBrowser(), Duration.ofSeconds(5));
+        explicitWait.until(ExpectedConditions.visibilityOfElementLocated(this.locator));
     }
 
     public void waitControlIsNotInThePage() {
